@@ -12,25 +12,20 @@ services:
       HOSTNAME: "My Garry's Mod Server"
       GMODPORT: 27015
       CLIENTPORT: 27005
-      MAXPLAYERS: 24
-      GAMEMODE: "terrortown"
-      GAMEMAP: "ph_oceanwaves"
+      MAXPLAYERS: 32
+      GAMEMODE: terrortown
+      GAMEMAP: ph_oceanwaves
       ALLTALK: 1
       VOICEICON: 0
       DOWNLOADURL: ""
       LOADINGURL: ""
       PASSWORD: ""
       RCONPASSWORD: "changeme"
-      WORKSHOPID: "2421039084"
+      WORKSHOPID: "3461789288"
       LOGINTOKEN: ""  # Add your Steam login token if needed
     volumes:
-      - gmod-data:/home/steam/garrysmod
-      - css-data:/home/steam/css
-      - tf2-data:/home/steam/tf2
+      - /root/garrysmod:/home/steam/garrysmod
+      - /root/css:/home/steam/css
+      - /root/tf2:/home/steam/tf2
     restart: unless-stopped
-    user: "1000:1000"  # Optional: match host UID/GID
-
-volumes:
-  gmod-data:
-  css-data:
-  tf2-data:
+    #user: "1000:1000"  # Optional: match host UID/GID
