@@ -34,8 +34,18 @@ WORKDIR /home/steam/
 # COPY --chown=steam mount.cfg autoupdatescript.txt ./
 COPY --chown=steam autoupdatescript.txt ./
 
+# Set up working directories
+RUN mkdir -p /home/steam/garrysmod \
+             /home/steam/garrysmod/cfg \
+             /home/steam/css \
+             /home/steam/tf2 && \
+    chown -R steam:steam /home/steam \
+    chown -R steam:steam /home/steam/garrysmod/cfg
+
+
 COPY --chown=steam easygmod.sh .
 RUN chmod a+rx easygmod.sh
+
 
 # Start main script
 USER steam
