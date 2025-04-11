@@ -10,6 +10,8 @@ ${STEAMCMDDIR}/steamcmd.sh +login anonymous \
 ${STEAMCMDDIR}/steamcmd.sh +login anonymous \
     +force_install_dir ${TF2DIR} +app_update ${TF2ID} validate +quit
 
+mkdir -p /home/steam/garrysmod/garrysmod/cfg
+
 echo "Garry's Mod updated to latest version"
 # Mount other game content
 if [ -f "${MOUNTCFG}" ]
