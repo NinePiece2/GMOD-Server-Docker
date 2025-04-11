@@ -10,6 +10,7 @@ ${STEAMCMDDIR}/steamcmd.sh +login anonymous \
 ${STEAMCMDDIR}/steamcmd.sh +login anonymous \
     +force_install_dir ${TF2DIR} +app_update ${TF2ID} validate +quit
 
+echo "Garry's Mod updated to latest version"
 # Mount other game content
 if [ -f "${MOUNTCFG}" ]
 then
@@ -27,6 +28,7 @@ else
     cp mount.cfg ${MOUNTCFG}
 fi
 
+echo "Mounted other game content"
 # Edit server config file
 touch ${SERVERCFG}
 if [ ! -z "${HOSTNAME}" ]
@@ -121,6 +123,10 @@ if ! grep -q 'exec banned_user.cfg' ${SERVERCFG}
 then
     echo "exec banned_user.cfg" >> ${SERVERCFG}
 fi
+
+echo "Server config file updated"
+echo "Server config file location: ${SERVERCFG}"
+echo "Server Starting..."
 
 # Start the server
 if [ -z "${GMODPORT}" ]
