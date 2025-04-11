@@ -31,8 +31,8 @@ ENV HOSTNAME="A Garry's Mod Server" \
 # Add files
 WORKDIR /home/steam/
 # Remove the mount.cfg copy
-# COPY --chown=steam mount.cfg autoupdatescript.txt ./
-COPY --chown=steam autoupdatescript.txt ./
+COPY --chown=steam mount.cfg autoupdatescript.txt ./
+#COPY --chown=steam autoupdatescript.txt ./
 
 # Set up working directories
 RUN mkdir -p /home/steam/garrysmod \
