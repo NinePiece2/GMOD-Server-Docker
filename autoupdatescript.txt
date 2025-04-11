@@ -1,10 +1,17 @@
 @ShutdownOnFailedCommand 1
 @NoPromptForPassword 1
-login anonymous
+
 force_install_dir /home/steam/garrysmod
+login anonymous
 app_update 4020
+quit
+
 force_install_dir /home/steam/css
+login anonymous
 app_update 232330
+quit
+
 force_install_dir /home/steam/tf2
+login anonymous
 app_update 232250
 quit
