@@ -155,7 +155,7 @@ if [ -z "${WORKSHOPID}" ]
 then
     if [ -z "${LOGINTOKEN}" ]
     then
-        exec ${GMODDIR}/srcds_run \
+        exec ${GMODDIR}/srcds_run -debug \
             -autoupdate \
             -steam_dir ${STEAMCMDDIR} \
             -steamcmd_script /home/steam/autoupdatescript.txt \
@@ -166,7 +166,7 @@ then
             +gamemode ${GAMEMODE} \
             +map ${GAMEMAP}
     else
-        exec ${GMODDIR}/srcds_run \
+        exec ${GMODDIR}/srcds_run -debug \
             -autoupdate \
             -steam_dir ${STEAMCMDDIR} \
             -steamcmd_script /home/steam/autoupdatescript.txt \
@@ -181,7 +181,7 @@ then
 else
     if [ -z "${LOGINTOKEN}" ]
     then
-        exec ${GMODDIR}/srcds_run \
+        exec ${GMODDIR}/srcds_run -debug \
             -autoupdate \
             -steam_dir ${STEAMCMDDIR} \
             -steamcmd_script /home/steam/autoupdatescript.txt \
@@ -193,7 +193,7 @@ else
             +gamemode ${GAMEMODE} \
             +map ${GAMEMAP}
     else
-        exec ${GMODDIR}/srcds_run \
+        exec ${GMODDIR}/srcds_run -debug \
             -autoupdate \
             -steam_dir ${STEAMCMDDIR} \
             -steamcmd_script /home/steam/autoupdatescript.txt \
