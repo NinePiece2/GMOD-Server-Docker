@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  gmod-server:
+    image: ninepiece2/gmod-server:latest
+    container_name: gmod-server
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015/tcp"
+      - "27005:27005/udp"
+    environment:
+      HOSTNAME: "My Garry's Mod Server"
+      GMODPORT: 27015
+      CLIENTPORT: 27005
+      MAXPLAYERS: 24
+      GAMEMODE: "terrortown"
+      GAMEMAP: "ph_oceanwaves"
+      ALLTALK: 1
+      VOICEICON: 0
+      DOWNLOADURL: ""
+      LOADINGURL: ""
+      PASSWORD: ""
+      RCONPASSWORD: "changeme"
+      WORKSHOPID: "2421039084"
+      LOGINTOKEN: ""  # Add your Steam login token if needed
+    volumes:
+      - gmod-data:/home/steam/garrysmod
+      - css-data:/home/steam/css
+      - tf2-data:/home/steam/tf2
+    restart: unless-stopped
+    user: "1000:1000"  # Optional: match host UID/GID
+
+volumes:
+  gmod-data:
+  css-data:
+  tf2-data:
