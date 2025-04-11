@@ -30,7 +30,6 @@ ENV HOSTNAME="A Garry's Mod Server" \
 
 # Add files
 WORKDIR /home/steam/
-# Remove the mount.cfg copy
 COPY --chown=steam mount.cfg autoupdatescript.txt ./
 #COPY --chown=steam autoupdatescript.txt ./
 
@@ -44,7 +43,6 @@ RUN mkdir -p /home/steam/garrysmod \
 
 COPY --chown=steam easygmod.sh .
 RUN chmod a+rx easygmod.sh
-
 
 # Start main script
 USER steam
