@@ -131,8 +131,8 @@ echo "Server config file location: ${SERVERCFG}"
 echo "Server Starting..."
 
 exec ${GMODDIR}/srcds_run -debug \
-            -autoupdate \
-            -steam_dir ${STEAMCMDDIR} \
+            # -autoupdate \
+            # -steam_dir ${STEAMCMDDIR} \
             -port ${GMODPORT} \
             -clientport ${CLIENTPORT} \
             -maxplayers ${MAXPLAYERS} \
