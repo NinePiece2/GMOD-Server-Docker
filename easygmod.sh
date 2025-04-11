@@ -118,7 +118,7 @@ echo "Server Starting..."
 
 exec ${GMODDIR}/srcds_run -debug \
             -game garrysmod \
-            +host_workshop_collection ${WORKSHOPID} \
             -maxplayers ${MAXPLAYERS} \
+            +map ${GAMEMAP} \
             +gamemode ${GAMEMODE} \
-            +map ${GAMEMAP}
+            +host_workshop_collection ${WORKSHOPID}
