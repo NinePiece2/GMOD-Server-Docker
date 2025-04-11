@@ -30,8 +30,8 @@ ENV HOSTNAME="A Garry's Mod Server" \
 
 # Add files
 WORKDIR /home/steam/
-COPY --chown=steam mount.cfg autoupdatescript.txt ./
-#COPY --chown=steam autoupdatescript.txt ./
+#COPY --chown=steam mount.cfg autoupdatescript.txt ./
+COPY --chown=steam autoupdatescript.txt ./
 
 RUN chown -R steam:steam /home/steam 
 

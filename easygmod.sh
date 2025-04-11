@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # Update Garry's Mod
-${STEAMCMDDIR}/steamcmd.sh +login anonymous \
-    +force_install_dir ${GMODDIR} +app_update ${GMODID} validate +quit
+${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${GMODDIR} +login anonymous \
+     +app_update ${GMODID} validate +quit
 
 # Update other game content
-${STEAMCMDDIR}/steamcmd.sh +login anonymous \
-    +force_install_dir ${CSSDIR} +app_update ${CSSID} validate +quit
-${STEAMCMDDIR}/steamcmd.sh +login anonymous \
-    +force_install_dir ${TF2DIR} +app_update ${TF2ID} validate +quit
+${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${CSSDIR} +login anonymous \
+     +app_update ${CSSID} validate +quit
+${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${TF2DIR} +login anonymous \
+     +app_update ${TF2ID} validate +quit
 
 # mkdir -p /home/steam/garrysmod/garrysmod/cfg
 
