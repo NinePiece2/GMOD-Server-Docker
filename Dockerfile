@@ -51,4 +51,4 @@ CMD ./easygmod.sh
 
 # Set up container
 EXPOSE 27015/udp 27005/udp
-VOLUME ${GMODDIR} ${CSSDIR} ${TF2DIR}
+#VOLUME ${GMODDIR} ${CSSDIR} ${TF2DIR}
