@@ -10,25 +10,25 @@ ${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${CSSDIR} +login anonymous \
 ${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${TF2DIR} +login anonymous \
      +app_update ${TF2ID} validate +quit
 
-# mkdir -p /home/steam/garrysmod/garrysmod/cfg
+mkdir -p /home/steam/garrysmod/garrysmod/cfg
 
 echo "Garry's Mod updated to latest version"
-# # Mount other game content
-# if [ -f "${MOUNTCFG}" ]
-# then
-#     if ! grep -q '"cstrike"\s"'"${CSSDIR}"'/cstrike"' ${MOUNTCFG}
-#     then
-#         sed -i '/"cstrike"/d' ${MOUNTCFG}
-#         sed -i '/^\s*}/ i 	"cstrike"	"'"${CSSDIR}"'/cstrike"' ${MOUNTCFG}
-#     fi
-#     if ! grep -q '"tf"\s"'"${TF2DIR}"'/tf"' ${MOUNTCFG}
-#     then
-#         sed -i '/"tf"/d' ${MOUNTCFG}
-#         sed -i '/^\s*}/ i 	"tf"	"'"${TF2DIR}"'/tf"' ${MOUNTCFG}
-#     fi
-# else
-#     cp mount.cfg ${MOUNTCFG}
-# fi
+# Mount other game content
+if [ -f "${MOUNTCFG}" ]
+then
+    if ! grep -q '"cstrike"\s"'"${CSSDIR}"'/cstrike"' ${MOUNTCFG}
+    then
+        sed -i '/"cstrike"/d' ${MOUNTCFG}
+        sed -i '/^\s*}/ i 	"cstrike"	"'"${CSSDIR}"'/cstrike"' ${MOUNTCFG}
+    fi
+    if ! grep -q '"tf"\s"'"${TF2DIR}"'/tf"' ${MOUNTCFG}
+    then
+        sed -i '/"tf"/d' ${MOUNTCFG}
+        sed -i '/^\s*}/ i 	"tf"	"'"${TF2DIR}"'/tf"' ${MOUNTCFG}
+    fi
+else
+    cp mount.cfg ${MOUNTCFG}
+fi
 
 echo "Mounted other game content"
 # Edit server config file
