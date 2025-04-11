@@ -1,10 +1,13 @@
 @ShutdownOnFailedCommand 1
 @NoPromptForPassword 1
+
+force_install_dir /home/steam/garrysmod
 login anonymous
-force_install_dir ${GMODDIR}
-app_update ${GMODID}
-force_install_dir ${CSSDIR}
-app_update ${CSSID}
-force_install_dir ${TF2DIR}
-app_update ${TF2ID}
+app_update 4020
+
+force_install_dir /home/steam/css
+app_update 232330
+
+force_install_dir /home/steam/tf2
+app_update 232250
 quit
