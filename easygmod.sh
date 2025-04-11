@@ -1,18 +1,31 @@
 #!/bin/sh
 
 # Update Garry's Mod
-${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${GMODDIR} \
-    +login anonymous +app_update ${GMODID} validate +quit
+${STEAMCMDDIR}/steamcmd.sh +login anonymous \
+    +force_install_dir ${GMODDIR} +app_update ${GMODID} validate +quit
 
-# Update Counter-Strike: Source
-${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${CSSDIR} \
-    +login anonymous +app_update ${CSSID} validate +quit
+# Update other game content
+${STEAMCMDDIR}/steamcmd.sh +login anonymous \
+    +force_install_dir ${CSSDIR} +app_update ${CSSID} validate +quit
+${STEAMCMDDIR}/steamcmd.sh +login anonymous \
+    +force_install_dir ${TF2DIR} +app_update ${TF2ID} validate +quit
 
-# Update Team Fortress 2
-${STEAMCMDDIR}/steamcmd.sh +force_install_dir ${TF2DIR} \
-    +login anonymous +app_update ${TF2ID} validate +quit
-
-
+# Mount other game content
+if [ -f "${MOUNTCFG}" ]
+then
+    if ! grep -q '"cstrike"\s"'"${CSSDIR}"'/cstrike"' ${MOUNTCFG}
+    then
+        sed -i '/"cstrike"/d' ${MOUNTCFG}
+        sed -i '/^\s*}/ i 	"cstrike"	"'"${CSSDIR}"'/cstrike"' ${MOUNTCFG}
+    fi
+    if ! grep -q '"tf"\s"'"${TF2DIR}"'/tf"' ${MOUNTCFG}
+    then
+        sed -i '/"tf"/d' ${MOUNTCFG}
+        sed -i '/^\s*}/ i 	"tf"	"'"${TF2DIR}"'/tf"' ${MOUNTCFG}
+    fi
+else
+    cp mount.cfg ${MOUNTCFG}
+fi
 
 # Edit server config file
 touch ${SERVERCFG}
@@ -186,13 +199,3 @@ else
             +map ${GAMEMAP}
     fi
 fi
-
-GAMEINFO_PATH="${GMODDIR}/garrysmod/gameinfo.txt"
-
-# Wait for gameinfo.txt to exist
-while [ ! -f "${GAMEINFO_PATH}" ]; do
-    sleep 1
-done
-
-# Patch mount paths in gameinfo.txt
-sed -i '/Game\/garrysmod\/garrysmod/a \ \ \ \ Game\t\t'"${TF2DIR}/tf"'\n\t\tGame\t\t'"${CSSDIR}/cstrike"'' "${GAMEINFO_PATH}"
